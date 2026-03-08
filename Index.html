@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Zarmeen Ayesha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --soft-pink: #f8d7da;
+            --warm-bg: radial-gradient(circle, #2c1e3d 0%, #1a1a2e 100%);
+            --text-light: #fdfdfd;
+            --accent-glow: rgba(212, 175, 55, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--warm-bg);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-light);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- Sparkle/Star Background --- */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: twinkle var(--duration) infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* --- Confetti --- */
+        .confetti-container {
+            position: fixed;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--soft-pink);
+            opacity: 0.7;
+            animation: fall var(--duration) linear infinite;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(105vh) rotate(720deg); }
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 40px;
+            animation: fadeInUp 1.5s ease-out forwards;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 20px;
+            color: var(--primary-gold);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Birthday Card --- */
+        .card-section {
+            padding: 40px 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .birthday-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: borderGlow 4s infinite alternate;
+        }
+
+        .birthday-card p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        @keyframes borderGlow {
+            from { box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); border-color: rgba(212, 175, 55, 0.2); }
+            to { box-shadow: 0 0 25px var(--accent-glow); border-color: var(--primary-gold); }
+        }
+
+        /* --- Birthday Cake CSS Art --- */
+        .cake-container {
+            margin: 60px 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cake-layer {
+            background: #f4e1d2;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            border-bottom: 4px solid #e2c0a8;
+        }
+
+        .layer-top { width: 100px; height: 50px; background: #ffdfba; z-index: 3; }
+        .layer-mid { width: 140px; height: 60px; background: #f8d7da; margin-top: -5px; z-index: 2; }
+        .layer-bottom { width: 180px; height: 70px; background: #f4e1d2; margin-top: -5px; z-index: 1; }
+
+        .candle {
+            width: 8px;
+            height: 30px;
+            background: #d4af37;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .flame {
+            width: 12px;
+            height: 18px;
+            background: radial-gradient(circle, #fffd75 0%, #ff8c00 100%);
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -22px;
+            left: -2px;
+            animation: flicker 0.6s infinite alternate;
+            box-shadow: 0 0 15px #ff8c00;
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1) rotate(-2deg); opacity: 0.9; }
+            100% { transform: scale(1.1) rotate(2deg); opacity: 1; }
+        }
+
+        /* --- Balloons --- */
+        .balloon {
+            position: fixed;
+            bottom: -150px;
+            width: 60px;
+            height: 75px;
+            border-radius: 50%;
+            z-index: -1;
+            animation: floatUp 10s linear infinite;
+        }
+
+        .balloon::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            width: 2px;
+            height: 30px;
+            background: rgba(255,255,255,0.3);
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-25vh) translateX(20px); }
+            50% { transform: translateY(-50vh) translateX(-20px); }
+            100% { transform: translateY(-120vh) translateX(0); }
+        }
+
+        /* --- Footer --- */
+        footer {
+            margin: 60px 0 40px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            animation: pulse 3s infinite ease-in-out;
+            text-align: center;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .birthday-card { margin: 0 15px; padding: 25px; }
+            h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars-container">
+        <div class="star" style="top: 10%; left: 20%; width: 2px; height: 2px; --duration: 3s;"></div>
+        <div class="star" style="top: 30%; left: 80%; width: 3px; height: 3px; --duration: 5s;"></div>
+        <div class="star" style="top: 70%; left: 15%; width: 2px; height: 2px; --duration: 4s;"></div>
+        <div class="star" style="top: 50%; left: 50%; width: 4px; height: 4px; --duration: 6s;"></div>
+        <div class="star" style="top: 85%; left: 90%; width: 2px; height: 2px; --duration: 2s;"></div>
+        <div class="star" style="top: 20%; left: 40%; width: 3px; height: 3px; --duration: 7s;"></div>
+    </div>
+
+    <div class="confetti-container">
+        <div class="confetti" style="left: 10%; background: #ffd700; --duration: 7s;"></div>
+        <div class="confetti" style="left: 25%; background: #f8d7da; --duration: 9s;"></div>
+        <div class="confetti" style="left: 45%; background: #ffffff; --duration: 6s;"></div>
+        <div class="confetti" style="left: 65%; background: #ffd700; --duration: 10s;"></div>
+        <div class="confetti" style="left: 85%; background: #f8d7da; --duration: 8s;"></div>
+    </div>
+
+    <div class="balloon" style="left: 5%; background: rgba(212, 175, 55, 0.4); animation-delay: 0s;"></div>
+    <div class="balloon" style="left: 15%; background: rgba(248, 215, 218, 0.4); animation-delay: 4s;"></div>
+    <div class="balloon" style="left: 80%; background: rgba(212, 175, 55, 0.4); animation-delay: 2s;"></div>
+    <div class="balloon" style="left: 90%; background: rgba(255, 255, 255, 0.2); animation-delay: 7s;"></div>
+
+    <section class="hero">
+        <h1>Happy Birthday <br>Zarmeen Ayesha</h1>
+        <p class="hero-sub">Your kindness, humility, and beautiful heart make the world brighter. Wishing you a day filled with happiness, peace, and countless blessings.</p>
+    </section>
+
+    <div class="cake-container">
+        <div class="layer-top cake-layer">
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+        </div>
+        <div class="layer-mid cake-layer"></div>
+        <div class="layer-bottom cake-layer"></div>
+    </div>
+
+    <section class="card-section">
+        <div class="birthday-card">
+            <p>
+                <strong>Dear Zarmeen Ayesha,</strong><br><br>
+                You are one of the most humble and kind people I know. Your calm nature and beautiful personality make everyone around you feel comfortable and happy. May this new year of your life bring you success, peace, and endless smiles.<br><br>
+                <span style="color: var(--primary-gold); font-family: 'Playfair Display'; font-size: 1.4rem;">Happy Birthday!</span>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        Made with sincere wishes for Zarmeen Ayesha
+    </footer>
+
+</body>
+</html>
+
